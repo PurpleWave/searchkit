@@ -11,6 +11,10 @@ const defaults = require("lodash/defaults")
 const throttle = require("lodash/throttle")
 const assign = require("lodash/assign")
 const isUndefined = require("lodash/isUndefined")
+const Grid = require("@material-ui/core/Grid")
+const TextField = require("@material-ui/core/TextField")
+const CircularProgress = require("@material-ui/core/CircularProgress")
+const SearchIcon = require("@material-ui/icons/Search")
 
 export interface SearchBoxProps extends SearchkitComponentProps {
   searchOnChange?:boolean
@@ -159,20 +163,28 @@ export class SearchBox extends SearchkitComponent<SearchBoxProps, any> {
 
     return (
       <div className={block().state({focused:this.state.focused})}>
-        <form onSubmit={this.onSubmit.bind(this)}>
-          <div className={block("icon")}></div>
-          <input type="text"
-          data-qa="query"
-          className={block("text")}
-          placeholder={this.props.placeholder || this.translate("searchbox.placeholder")}
-          value={this.getValue()}
-          onFocus={this.setFocusState.bind(this, true)}
-          onBlur={this.setFocusState.bind(this, false)}
-          ref="queryField"
-          autoFocus={this.props.autofocus}
-          onInput={this.onChange.bind(this)}/>
+        <form style={{ alignItems: 'baseline', flexDirection: 'row' }} onSubmit={this.onSubmit.bind(this)}>
+          <Grid container spacing={ 8 } alignItems='flex-end' style={{ marginBottom: 12 }}>
+            <Grid item>
+              <SearchIcon />
+            </Grid>
+            <Grid item style={{ flex: '1 0 auto' }}>
+              <TextField
+                type='text'
+                data-qa='query'
+                className='fullWidthInput'
+                placeholder={ this.props.placeholder }
+                label='Search'
+                value={ this.getValue() }
+                onFocus={ this.setFocusState.bind(this, true) }
+                onBlur={ this.setFocusState.bind(this, false) }
+                autoFocus={ this.props.autofocus }
+                onInput={ this.onChange.bind(this) }
+              />
+            </Grid>
+          </Grid>
           <input type="submit" value={this.translate("searchbox.button")} className={block("action")} data-qa="submit"/>
-          <div data-qa="loader" className={block("loader").mix("sk-spinning-loader").state({hidden:!this.isLoading()})}></div>
+          <CircularProgress color='secondary' data-qa='loader' style={{ opacity: this.isLoading() ? 1 : 0 }} />
         </form>
       </div>
     );
