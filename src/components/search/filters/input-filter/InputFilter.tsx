@@ -19,6 +19,7 @@ const defaults = require("lodash/defaults")
 const throttle = require("lodash/throttle")
 const assign = require("lodash/assign")
 const isUndefined = require("lodash/isUndefined")
+const TextField = require("@material-ui/core/TextField")
 
 export interface InputFilterProps extends SearchkitComponentProps {
   id: string
@@ -170,6 +171,7 @@ export class InputFilter extends SearchkitComponent<InputFilterProps, any> {
         focused,
         input: undefined // Flush (should use accessor's state now)
       })
+      this.onClear()
     } else {
       this.setState({ focused })
     }
@@ -184,23 +186,18 @@ export class InputFilter extends SearchkitComponent<InputFilterProps, any> {
       className: id ? `filter--${id}` : undefined,
       disabled: (this.searchkit.getHitsCount() == 0) && (this.getAccessorValue() == "")
     },
-      <div className={block().state({focused:this.state.focused})}>
+      <div>
         <form onSubmit={this.onSubmit.bind(this)}>
-          <div className={block("icon")}></div>
-          <input type="text"
-            data-qa="input-filter"
-            className={block("text")}
-            placeholder={this.props.placeholder || this.translate("searchbox.placeholder")}
-            value={value}
-            onFocus={this.setFocusState.bind(this, true)}
-            onBlur={this.setFocusState.bind(this, false)}
-            ref="queryField"
-            autoFocus={false}
-            onInput={this.onChange.bind(this)}/>
+          <TextField
+            className='fullWidthInput'
+            label='Search'
+            value={ value }
+            onFocus={ this.setFocusState.bind(this, true) }
+            onBlur={ this.setFocusState.bind(this, false) }
+            autoFocus={ false }
+            onInput={ this.onChange.bind(this) }
+          />
           <input type="submit" value={this.translate("searchbox.button")} className={block("action")} data-qa="submit"/>
-          <div data-qa="remove"
-               onClick={this.onClear}
-               className={block("remove").state({hidden:value == ""})} />
         </form>
       </div>
     );
