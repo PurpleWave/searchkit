@@ -19,7 +19,8 @@ const defaults = require("lodash/defaults")
 const throttle = require("lodash/throttle")
 const assign = require("lodash/assign")
 const isUndefined = require("lodash/isUndefined")
-const TextField = require("@material-ui/core/TextField")
+
+import TextField from "@material-ui/core/TextField"
 
 export interface InputFilterProps extends SearchkitComponentProps {
   id: string

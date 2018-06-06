@@ -11,10 +11,11 @@ const defaults = require("lodash/defaults")
 const throttle = require("lodash/throttle")
 const assign = require("lodash/assign")
 const isUndefined = require("lodash/isUndefined")
-const Grid = require("@material-ui/core/Grid")
-const TextField = require("@material-ui/core/TextField")
-const CircularProgress = require("@material-ui/core/CircularProgress")
-const SearchIcon = require("@material-ui/icons/Search")
+
+import Grid from "@material-ui/core/Grid"
+import TextField from "@material-ui/core/TextField"
+import CircularProgress from "@material-ui/core/CircularProgress"
+import SearchIcon from "@material-ui/icons/Search"
 
 export interface SearchBoxProps extends SearchkitComponentProps {
   searchOnChange?:boolean
