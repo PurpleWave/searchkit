@@ -83,6 +83,7 @@ export class InputFilter extends SearchkitComponent<InputFilterProps, any> {
       focused:false,
       input: undefined
     }
+    console.log(props);
     this.lastSearchMs = 0
     this.onClear = this.onClear.bind(this)
     this.throttledSearch = throttle(()=> {
@@ -181,12 +182,10 @@ export class InputFilter extends SearchkitComponent<InputFilterProps, any> {
   }
 
   render() {
-    const { containerComponent, title, id, type } = this.props
+    const { containerComponent, title, id, type = 'text' } = this.props
     const block = this.bemBlocks.container
     const value = this.getValue()
-    if (!type) {
-      type = 'text';
-    }
+    
     return renderComponent(containerComponent, {
       title,
       className: id ? `filter--${id}` : undefined,
