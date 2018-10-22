@@ -36,6 +36,7 @@ export interface InputFilterProps extends SearchkitComponentProps {
   placeholder?: string
   blurAction?:"search"|"restore"
   containerComponent?: RenderComponentType<any>
+  type?: string
 }
 
 export class InputFilter extends SearchkitComponent<InputFilterProps, any> {
@@ -54,7 +55,8 @@ export class InputFilter extends SearchkitComponent<InputFilterProps, any> {
     collapsable: false,
     mod: "sk-input-filter",
     searchThrottleTime:200,
-    blurAction: "search"
+    blurAction: "search",
+    type: 'text'
   }
 
   static propTypes = defaults({
@@ -179,9 +181,12 @@ export class InputFilter extends SearchkitComponent<InputFilterProps, any> {
   }
 
   render() {
-    const { containerComponent, title, id } = this.props
+    const { containerComponent, title, id, type } = this.props
     const block = this.bemBlocks.container
     const value = this.getValue()
+    if (!type) {
+      type = 'text';
+    }
     return renderComponent(containerComponent, {
       title,
       className: id ? `filter--${id}` : undefined,
@@ -197,6 +202,7 @@ export class InputFilter extends SearchkitComponent<InputFilterProps, any> {
             onBlur={ this.setFocusState.bind(this, false) }
             autoFocus={ false }
             onInput={ this.onChange.bind(this) }
+            type={ type }
           />
           <input type="submit" value={this.translate("searchbox.button")} className={block("action")} data-qa="submit"/>
         </form>
