@@ -21,15 +21,15 @@ export interface RangeProps {
     children?: any;
 }
 export declare const RangePropTypes: {
-    onChange: PropTypes.Validator<any>;
-    onFinished: PropTypes.Validator<any>;
-    min: PropTypes.Validator<any>;
-    max: PropTypes.Validator<any>;
-    minValue: PropTypes.Requireable<any>;
-    maxValue: PropTypes.Requireable<any>;
-    items: PropTypes.Requireable<any>;
-    disabled: PropTypes.Requireable<any>;
-    mod: PropTypes.Requireable<any>;
-    className: PropTypes.Requireable<any>;
-    translate: PropTypes.Requireable<any>;
+    onChange: PropTypes.Validator<(...args: any[]) => any>;
+    onFinished: PropTypes.Validator<(...args: any[]) => any>;
+    min: PropTypes.Validator<number>;
+    max: PropTypes.Validator<number>;
+    minValue: PropTypes.Requireable<number>;
+    maxValue: PropTypes.Requireable<number>;
+    items: PropTypes.Requireable<any[]>;
+    disabled: PropTypes.Requireable<boolean>;
+    mod: PropTypes.Requireable<string>;
+    className: PropTypes.Requireable<string>;
+    translate: PropTypes.Requireable<(...args: any[]) => any>;
 };
