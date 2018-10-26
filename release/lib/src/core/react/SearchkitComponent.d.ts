@@ -17,7 +17,7 @@ export declare class SearchkitComponent<P extends SearchkitComponentProps, S> ex
     translations: Object;
     unmounted: boolean;
     static contextTypes: React.ValidationMap<any>;
-    static translationsPropType: (translations: any) => PropTypes.Requireable<any>;
+    static translationsPropType: (translations: any) => PropTypes.Requireable<PropTypes.InferProps<any>>;
     static propTypes: any;
     constructor(props?: any);
     defineBEMBlocks(): any;
