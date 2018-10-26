@@ -21,9 +21,9 @@ export declare class HitsList extends React.PureComponent<HitsListProps, any> {
         itemComponent: typeof HitItem;
     };
     static propTypes: {
-        mod: PropTypes.Requireable<string>;
-        className: PropTypes.Requireable<string>;
-        itemComponent: PropTypes.Requireable<{} | PropTypes.ReactElementLike | ((...args: any[]) => any)>;
+        mod: PropTypes.Requireable<any>;
+        className: PropTypes.Requireable<any>;
+        itemComponent: PropTypes.Requireable<any>;
         hits: PropTypes.Requireable<any>;
     };
     render(): JSX.Element;
