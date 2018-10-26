@@ -13,12 +13,12 @@ export declare class Panel extends React.PureComponent<PanelProps, {
     collapsed: boolean;
 }> {
     static propTypes: {
-        title: PropTypes.Requireable<string>;
-        disabled: PropTypes.Requireable<boolean>;
-        mod: PropTypes.Requireable<string>;
-        className: PropTypes.Requireable<string>;
-        collapsable: PropTypes.Requireable<boolean>;
-        defaultCollapsed: PropTypes.Requireable<boolean>;
+        title: PropTypes.Requireable<any>;
+        disabled: PropTypes.Requireable<any>;
+        mod: PropTypes.Requireable<any>;
+        className: PropTypes.Requireable<any>;
+        collapsable: PropTypes.Requireable<any>;
+        defaultCollapsed: PropTypes.Requireable<any>;
     };
     static defaultProps: {
         disabled: boolean;

@@ -15,7 +15,6 @@ export interface InputFilterProps extends SearchkitComponentProps {
     placeholder?: string;
     blurAction?: "search" | "restore";
     containerComponent?: RenderComponentType<any>;
-    type?: string;
 }
 export declare class InputFilter extends SearchkitComponent<InputFilterProps, any> {
     accessor: QueryAccessor;
@@ -29,7 +28,6 @@ export declare class InputFilter extends SearchkitComponent<InputFilterProps, an
         mod: string;
         searchThrottleTime: number;
         blurAction: string;
-        type: string;
     };
     static propTypes: any;
     constructor(props: InputFilterProps);

@@ -7,11 +7,11 @@ export interface SearchkitProps {
 }
 export declare class SearchkitProvider extends React.Component<SearchkitProps, any> {
     static childContextTypes: {
-        searchkit: PropTypes.Requireable<SearchkitManager>;
+        searchkit: PropTypes.Requireable<any>;
     };
     static propTypes: {
-        searchkit: PropTypes.Validator<SearchkitManager>;
-        children: PropTypes.Validator<PropTypes.ReactElementLike>;
+        searchkit: PropTypes.Validator<any>;
+        children: PropTypes.Validator<any>;
     };
     componentWillMount(): void;
     componentDidMount(): void;

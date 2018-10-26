@@ -27,7 +27,7 @@ export declare class FacetFilter extends SearchkitComponent<FacetFilterProps, an
         translations: Object;
         orderKey: string;
         orderDirection: string;
-        fieldOptions: import("../../../../core/query/field_context/FieldOptions").FieldOptions;
+        fieldOptions: import("../../../../../../../../../../Users/alexneises/Projects/newsearchkit/searchkit/src/core/query/field_context/FieldOptions").FieldOptions;
     };
     defineAccessor(): FacetAccessor;
     defineBEMBlocks(): {
